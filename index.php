@@ -1,3 +1,7 @@
+<?php
+$k = mysqli_connect("localhost","root","","projectsuzuki");
+?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -39,8 +43,8 @@
 	<script type="text/javascript" src="js/jquery.countdown.js"></script>
 	<script type="text/javascript" src="js/jquery.checkbox.js"></script>
 	<script type="text/javascript" src="js/js.js"></script>
-<!-- 	<script type="text/javascript" async="async" defer="defer" data-cfasync="false" src="https://mylivechat.com/chatinline.aspx?hccid=84041678"></script> -->
-
+	<script type="text/javascript" async="async" defer="defer" data-cfasync="false" src="https://mylivechat.com/chatinline.aspx?hccid=84041678"></script>
+	
 </head>
 <body class="index">
 	<!--BEGIN HEADER-->
@@ -310,72 +314,36 @@
 				<div class="wrapper_3">
 					<div class="left">
 					
-						<div class="recent_cars">
+						<div class="recent_cars" style=" width: 103.3%;">
 							<h2><strong>Promo</strong> Terkini</h2> <!-- Recent listing-->
 							<ul>
+							
+								<?php
+								$sql = "SELECT * FROM `mobil` ";
+								$list = mysqli_query($k, $sql);
+								while($b = mysqli_fetch_array($list)){
+					
+									?>
 								<li>
 									<a href="#">
-										<img src="images/placeholders/220x164.gif" alt=""/>
+										<img src="<?php echo $b['gambarUtama'];?>" alt=""/>
 										<div class="description">Registration 2010<br/>3.0 Diesel<br/>230 HP<br/>Body Coupe<br/>80 000 Miles</div>
-										<div class="title">Mercedes-Benz <span class="price">$ 115 265</span></div>
+										<div class="title"><?php echo $b['namaMobil'];?><span class="price">Belum Ditentukan</span></div>
 									</a>
 								</li>
-								<li>
+								
+								
+							<!--	<li>
 									<a href="#">
 										<img src="images/placeholders/220x164.gif" alt=""/>
 										<div class="description">Registration 2010<br/>3.0 Diesel<br/>230 HP<br/>Body Coupe<br/>80 000 Miles</div>
 										<div class="title">Mercedes-Benz <span class="price">$ 115 265</span></div>
 									</a>
 								</li>
-								<li class="last">
-									<a href="#">
-										<img src="images/placeholders/220x164.gif" alt=""/>
-										<div class="description">Registration 2010<br/>3.0 Diesel<br/>230 HP<br/>Body Coupe<br/>80 000 Miles</div>
-										<div class="title">Mercedes-Benz <span class="price">$ 115 265</span></div>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="images/placeholders/220x164.gif" alt=""/>
-										<div class="description">Registration 2010<br/>3.0 Diesel<br/>230 HP<br/>Body Coupe<br/>80 000 Miles</div>
-										<div class="title">Mercedes-Benz <span class="price">$ 115 265</span></div>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="images/placeholders/220x164.gif" alt=""/>
-										<div class="description">Registration 2010<br/>3.0 Diesel<br/>230 HP<br/>Body Coupe<br/>80 000 Miles</div>
-										<div class="title">Mercedes-Benz <span class="price">$ 115 265</span></div>
-									</a>
-								</li>
-								<li class="last">
-									<a href="#">
-										<img src="images/placeholders/220x164.gif" alt=""/>
-										<div class="description">Registration 2010<br/>3.0 Diesel<br/>230 HP<br/>Body Coupe<br/>80 000 Miles</div>
-										<div class="title">Mercedes-Benz <span class="price">$ 115 265</span></div>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="images/placeholders/220x164.gif" alt=""/>
-										<div class="description">Registration 2010<br/>3.0 Diesel<br/>230 HP<br/>Body Coupe<br/>80 000 Miles</div>
-										<div class="title">Mercedes-Benz <span class="price">$ 115 265</span></div>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<img src="images/placeholders/220x164.gif" alt=""/>
-										<div class="description">Registration 2010<br/>3.0 Diesel<br/>230 HP<br/>Body Coupe<br/>80 000 Miles</div>
-										<div class="title">Mercedes-Benz <span class="price">$ 115 265</span></div>
-									</a>
-								</li>
-								<li class="last">
-									<a href="#">
-										<img src="images/placeholders/220x164.gif" alt=""/>
-										<div class="description">Registration 2010<br/>3.0 Diesel<br/>230 HP<br/>Body Coupe<br/>80 000 Miles</div>
-										<div class="title">Mercedes-Benz <span class="price">$ 115 265</span></div>
-									</a>
-								</li>
+							-->
+							<?php
+							}
+							?>
 							</ul>
 							<a href="#" class="all">all listings</a>
 						</div>
@@ -516,8 +484,6 @@ Lorem ipsum dolor sit amet, con sectetur adipisicing elit, sed do eius  mod temp
 			</div>
 		</div>
 	<!--EOF FOOTER-->
-	<!-- <script type='text/javascript' data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({c: '57f42bbe-f63b-4f8b-a620-1da85fe59db9', f: true }); done = true; } }; })();</script> -->
-	<!--Add the following script at the bottom of the web page (immediately before the </body> tag)-->
-<script type="text/javascript" async="async" defer="defer" data-cfasync="false" src="https://mylivechat.com/chatinline.aspx?hccid=84041678"></script>
+	<!--<script type='text/javascript' data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({c: '57f42bbe-f63b-4f8b-a620-1da85fe59db9', f: true }); done = true; } }; })();</script> -->
 </body>
 </html>
